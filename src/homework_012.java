@@ -1,30 +1,32 @@
 import java.util.Scanner;
-import java.util.Arrays;
 public class homework_012 {
     public static void main(String[] args) {
-
+        int[] a = new int[5];
         Scanner number = new Scanner(System.in);
 
-        System.out.println("Enter number 1: ");
-        int n1 = number.nextInt();
+        for (int b = 0; b < a.length; b++) {
+            System.out.print("Enter number " + (b + 1) + ":\n");
+            a[b] = number.nextInt();
+        }
+        System.out.print("Initial array: ");
 
-        System.out.println("Enter number 2: ");
-        int n2 = number.nextInt();
+        for ( int b = 0; b < a.length; b++) {
+            System.out.print(a[b] + " ");
+        }
+        System.out.println();
+        System.out.print("Sorted array: ");
 
-        System.out.println("Enter number 3: ");
-        int n3 = number.nextInt();
+        for (int j = 1; j <= a.length - 1; j++) {
+            int num = a[j];
 
-        System.out.println("Enter number 4: ");
-        int n4 = number.nextInt();
+            for (int i = j - 1; i >= 0 && a[i] > num; i--) {
+                a[i + 1] = a[i];
+                a[i] = num;
+            }
+        }
+        for (int i = 0; i < a.length; i++) {
 
-        System.out.println("Enter number 5: ");
-        int n5 = number.nextInt();
-
-        System.out.println("Initial array: " + n1 + ", " + n2 + ", " + n3 + ", " + n4 + ", " + n5);
-
-        int[] intArr = {n1, n2, n3, n4, n5};
-        Arrays.sort(intArr);
-        System.out.println("Sorted array: " + Arrays.toString(intArr));
+            System.out.print(a[i] + " ");
+        }
     }
-
 }
